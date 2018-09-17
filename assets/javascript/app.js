@@ -36,7 +36,11 @@ $(document).ready(function () {
 
         //Attach the initial values to the html dom nodes
         trainName = $("#Train-display").val().trim();
-        console.log(trainName);
+        destination = $("#Destination-display").val().trim();
+        firstTrainTime = $("#FirstTrain-Display").val().trim();
+        frequency = $("#Frequency-display").val().trim();
+
+       
 
         //Key Value Pairs
         //Prints in firebase web
@@ -55,9 +59,19 @@ $(document).ready(function () {
             //console log everthing 
             console.log(snapshot.val());
             console.log(snapshot.val().trainName);
+            console.log(snapshot.val().destination);
+            console.log(snapshot.val().frequency);
+            console.log(snapshot.val().firstTrainTime);
+            console.log(snapshot.val().frequency);
+
 
             //Change in the HTML
             $("#train-name").text(snapshot.val().trainName);
+            $("#destination").text(snapshot.val().destination);
+            $("#frequency").text(snapshot.val().frequency);
+            $("#next arrival").text(snapshot.val().firstTrainTime);
+            $("#minutes away").text(snapshot.val().frequency);
+
 
         });
 

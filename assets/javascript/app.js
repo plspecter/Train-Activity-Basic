@@ -23,8 +23,8 @@ $(document).ready(function () {
     var trainName = "";
     var destination = "";
     var frequency = 0;
-    var nextArrival = 0;
-    var minuesAway = 0;
+    var nextArrival = moment().format("DD/MM/YY hh:mm A");
+    var minuesAway = Math.floor(Math.random()*60);
 
     //Grab the values that have changed and print it to the database
 
@@ -75,9 +75,13 @@ $(document).ready(function () {
             $("#destination").text(snapshot.val().destination);
             $("#frequency").text(snapshot.val().frequency);
             $("#next arrival").text(snapshot.val().nextArrival);
-            $("#minutes away").text(snapshot.val().minutesAway);
+            $("#minutes-away-display").text(snapshot.val().minutesAway);
+
+            //Pick a random number for the Frequency
 
 
+            //Moment.js will print the times
+           moment().format("DD/MM/YY hh:mm A")
         });
 
     });

@@ -22,8 +22,9 @@ $(document).ready(function () {
     //Initial Values
     var trainName = "";
     var destination = "";
-    var firstTrainTime = 0;
     var frequency = 0;
+    var nextArrival = 0;
+    var minuesAway = 0;
 
     //Grab the values that have changed and print it to the database
 
@@ -37,8 +38,10 @@ $(document).ready(function () {
         //Attach the initial values to the html dom nodes
         trainName = $("#Train-display").val().trim();
         destination = $("#Destination-display").val().trim();
-        firstTrainTime = $("#FirstTrain-Display").val().trim();
         frequency = $("#Frequency-display").val().trim();
+        nextArrival = $("#next-arrival-display").val().trim();
+        minutesAway = $("#minutes-away-display").val().trim();
+       
 
        
 
@@ -47,8 +50,10 @@ $(document).ready(function () {
         database.ref().set({
             trainName: trainName,
             destination: destination,
-            firstTrainTime: firstTrainTime,
             frequency: frequency,
+            nextArrival: nextArrival,
+            minutesAway: minuesAway
+         
 
         });
 
@@ -61,16 +66,16 @@ $(document).ready(function () {
             console.log(snapshot.val().trainName);
             console.log(snapshot.val().destination);
             console.log(snapshot.val().frequency);
-            console.log(snapshot.val().firstTrainTime);
-            console.log(snapshot.val().frequency);
+            console.log(snapshot.val().nextArrival);
+            console.log(snapshot.val().minutesAway);
 
 
             //Change in the HTML
             $("#train-name").text(snapshot.val().trainName);
             $("#destination").text(snapshot.val().destination);
             $("#frequency").text(snapshot.val().frequency);
-            $("#next arrival").text(snapshot.val().firstTrainTime);
-            $("#minutes away").text(snapshot.val().frequency);
+            $("#next arrival").text(snapshot.val().nextArrival);
+            $("#minutes away").text(snapshot.val().minutesAway);
 
 
         });

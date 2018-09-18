@@ -23,7 +23,8 @@ $(document).ready(function () {
     var trainName = "";
     var destination = "";
     var frequency = 0;
-    var nextArrival = moment().format("DD/MM/YY hh:mm A");
+    var format = "mm:ss:";
+    var nextArrival = moment(format);
     var minuesAway = Math.floor(Math.random()*60);
 
     //Grab the values that have changed and print it to the database
@@ -79,6 +80,8 @@ $(document).ready(function () {
 
             //Pick a random number for the Frequency
 
+            //Console.log moment.js properties
+            console.log(moment(nextArrival).startOf('hour').fromNow());  
 
             //Moment.js will print the times
            moment().format("DD/MM/YY hh:mm A")

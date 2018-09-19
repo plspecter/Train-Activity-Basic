@@ -26,6 +26,7 @@ $(document).ready(function () {
     var format = "mm:ss:";
     var nextArrival = moment(format);
     var minuesAway = Math.floor(Math.random()*60);
+    console.log(nextArrival);
 
     //Grab the values that have changed and print it to the database
 
@@ -75,8 +76,8 @@ $(document).ready(function () {
             $("#train-name").text(snapshot.val().trainName);
             $("#destination").text(snapshot.val().destination);
             $("#frequency").text(snapshot.val().frequency);
-            $("#next arrival").text(snapshot.val().nextArrival);
-            $("#minutes-away-display").text(snapshot.val().minutesAway);
+            $("next-arrival-display").text(snapshot.val().nextArrival);
+            $("#minutes-away-display").text(snapshot.val().minutesAway + " mins");
 
             //Pick a random number for the Frequency
 
